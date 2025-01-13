@@ -1,0 +1,304 @@
+@font-face {
+  font-family: myFont;
+  src: url(./Copperplate.ttc);
+}
+
+body {
+  margin: 0;
+  font-family: myFont, monospace;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+.profile {
+  position: relative;
+  height: max-content;
+  width: 1000px;
+  padding: 60px;
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.skew {
+  top: 0;
+  left: 0;
+  transform: skewY(350deg);
+  height: 45rem;
+  position: absolute;
+  top: -20rem;
+  width: 100%;
+  z-index: -1;
+  background-color: rgb(6, 28, 3);
+  box-shadow: 3px 3px 10px 2px #000;
+}
+
+.profile-image img,
+.profile-image-back img {
+  width: 20rem;
+  height: 25rem;
+  object-fit: cover;
+}
+
+.profile-image,
+.profile-image-back {
+  width: 20rem;
+  height: 25rem;
+  box-shadow: 3px 3px 10px 2px #000;
+
+  position: absolute;
+
+  backface-visibility: hidden;
+}
+
+.profile-image-back {
+  transform: rotateY(180deg);
+}
+
+.profile-image-container {
+  width: 20rem;
+  height: 25rem;
+  position: relative;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 2s ease;
+}
+
+.profile-image-container:hover {
+  transform: rotateY(180deg);
+}
+
+.name-front,
+.name-back {
+  font-size: 2.32rem;
+  color: rgb(245, 230, 65);
+  position: absolute;
+  background-color: #1324159b;
+  box-shadow: 3px -3px 10px 2px #000;
+  padding: 0.6rem;
+  left: 0px;
+  bottom: 0px;
+}
+
+.header-text-container {
+  padding: 2rem;
+  max-height: max-content;
+  background-color: rgb(2, 28, 10, 80%);
+  color: rgb(245, 230, 65);
+  box-shadow: 3px 3px 5px 2px #000;
+}
+
+.icons {
+  background-color: rgb(245, 230, 65, 80%);
+  max-width: fit-content;
+  padding: 0.7rem;
+  margin-top: 2rem;
+  display: flex;
+  gap: 0.7rem;
+}
+
+.contact-info .icons {
+  background-color: rgb(232, 173, 79);
+}
+
+.about,
+.work,
+.contact {
+  font-size: 2.66rem;
+  margin-bottom: 0.7rem;
+}
+
+.card {
+  width: 18rem;
+  height: 22rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 4px 7px 2px #000;
+  background-color: rgba(129, 215, 64, 0.887);
+}
+
+.card-image {
+  width: 18rem;
+  height: 12rem;
+  background-color: rgb(6, 28, 3);
+  transition: background 1s ease-in-out;
+}
+
+.card-image::before {
+  width: 18rem;
+  height: 12rem;
+  background-image: linear-gradient(
+    20deg,
+    rgb(202, 209, 18) 0%,
+    rgba(6, 28, 3, 45%) 21%,
+    rgba(6, 28, 3, 75%) 76%,
+    rgba(21, 158, 25, 1) 100%
+  );
+  content: "";
+  display: block;
+  opacity: 0.1;
+  transition: opacity 1s ease-in-out;
+}
+
+.card-image:hover::before {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem;
+}
+
+.main {
+  margin: auto;
+  max-width: min-content;
+  padding: 0 60px;
+  color: rgb(6, 28, 3);
+}
+
+.card-links {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-info {
+  padding: 1rem;
+}
+
+.card-links img:hover,
+.icons img:hover,
+.mail img:hover {
+  transform: scale(1.2);
+  transition: transform 0.8s ease-in-out;
+}
+
+.card-links img,
+.icons img {
+  transition: transform 0.8s ease-in-out;
+}
+
+footer {
+  background-color: rgb(6, 28, 3);
+  padding-bottom: 15px;
+}
+
+.contact-container {
+  display: flex;
+  max-width: 1000px;
+  margin: auto;
+  padding: 60px;
+  gap: 40px;
+  margin-top: 75px;
+  color: rgb(232, 173, 79);
+}
+
+.mail {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (max-width: 1200px) {
+  .cards {
+    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .profile-image {
+    height: 22rem;
+  }
+
+  .profile {
+    display: block;
+    width: max-content;
+  }
+
+  .profile-image-container {
+    float: left;
+    margin: -2rem 2rem 1rem -2rem;
+  }
+
+  .about {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .name-front {
+    bottom: -48px;
+  }
+
+  .name-back {
+    bottom: 0px;
+  }
+
+  .header-text-container {
+    width: 500px;
+    margin: 0;
+    margin-top: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+  }
+
+  .header-text-container .icons {
+    display: none;
+  }
+
+  .contact-container {
+    max-width: 650px;
+  }
+}
+
+@media (max-width: 750px) {
+  .header-text-container .icons {
+    display: block;
+  }
+
+  .profile {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    width: min-content;
+  }
+
+  .profile-image-container {
+    margin: 0;
+  }
+  .header-text-container {
+    margin-top: 1rem;
+    padding: 1rem;
+    width: auto;
+  }
+
+  .name {
+    position: absolute;
+  }
+
+  .about {
+    margin: 0;
+  }
+
+  .contact-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    max-width: min-content;
+  }
+
+  .contact-info {
+    padding: 2rem;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
